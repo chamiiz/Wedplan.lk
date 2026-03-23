@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register – WedPlan.lk</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Wed<span>Plan</span>.lk</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="login.html" class="btn-ghost">Login</a>
+      <a href="register.html" class="btn-solid">Register</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card" style="max-width:500px">
+    <h2>Create <em>Account</em></h2>
+    <p class="sub">Join thousands of couples and vendors on WedPlan.lk</p>
+    <div id="regAlert" style="display:none"></div>
+    <form id="registerForm">
+      <div class="form-group">
+        <label>Account Type</label>
+        <select id="regType">
+          <option value="customer">Customer (Planning a Wedding)</option>
+          <option value="vendor">Vendor (Wedding Service Provider)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Full Name / Business Name</label>
+        <input type="text" id="regName" placeholder="Your name or business name" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="regEmail" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="regPhone" placeholder="+94 7X XXX XXXX">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="regPass" placeholder="Minimum 6 characters" required>
+      </div>
+      <button type="submit" class="form-submit">Create Account</button>
+    </form>
+    <div class="auth-switch">
+      Already have an account? <a href="login.html">Sign in here</a>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

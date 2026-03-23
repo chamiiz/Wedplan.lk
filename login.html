@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login – WedPlan.lk</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Wed<span>Plan</span>.lk</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="login.html" class="btn-ghost">Login</a>
+      <a href="register.html" class="btn-solid">Register</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Welcome <em>Back</em></h2>
+    <p class="sub">Sign in to manage your wedding bookings</p>
+    <div id="loginAlert" style="display:none"></div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="form-submit">Sign In</button>
+    </form>
+    <div class="auth-switch">
+      Don't have an account? <a href="register.html">Register here</a>
+    </div>
+    <div class="auth-switch" style="margin-top:8px">
+      <a href="register.html?type=vendor">Register as Vendor →</a>
+    </div>
+    <div style="margin-top:24px;padding:16px;background:var(--cream);border-radius:12px;font-size:0.8rem;color:var(--mid)">
+      <strong>Demo:</strong> Enter any email + password (min 6 chars) to log in as customer.
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

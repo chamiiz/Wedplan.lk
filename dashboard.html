@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard – WedPlan.lk</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Wed<span>Plan</span>.lk</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+    </ul>
+    <div class="nav-btns">
+      <button onclick="handleLogout()" class="btn-ghost">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">Wed<span>Plan</span>.lk</div>
+    <a href="dashboard.html" class="active"><span class="icon">🏠</span> Dashboard</a>
+    <a href="vendors.html"><span class="icon">🔍</span> Browse Vendors</a>
+    <a href="dashboard.html"><span class="icon">📅</span> My Bookings</a>
+    <a href="dashboard.html"><span class="icon">💬</span> Messages</a>
+    <a href="dashboard.html"><span class="icon">⭐</span> Reviews</a>
+    <a href="register.html?type=vendor"><span class="icon">🏪</span> Vendor Portal</a>
+    <a href="dashboard.html"><span class="icon">⚙️</span> Settings</a>
+    <a href="#" onclick="handleLogout()" style="margin-top:auto"><span class="icon">🚪</span> Logout</a>
+  </aside>
+
+  <main class="main-content">
+    <div class="dashboard-header">
+      <h1>Welcome back, <em id="dashUserName">User</em>!</h1>
+      <p>Here's an overview of your wedding planning progress</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num" id="bookingCount">0</div>
+        <div class="label">Total Bookings</div>
+        <div class="change">↑ Your wedding is getting closer!</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">7</div>
+        <div class="label">Vendors Shortlisted</div>
+        <div class="change">↑ 3 new this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">142</div>
+        <div class="label">Days to Wedding</div>
+        <div class="change">Keep planning! 🎊</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">4</div>
+        <div class="label">Pending Replies</div>
+        <div class="change">Vendors are reviewing</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>📅 Recent Bookings</h3>
+      <div id="bookingList">
+        <p style="color:var(--mid)">No bookings yet. <a href="vendors.html" style="color:var(--gold)">Browse vendors →</a></p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>✅ Wedding Checklist</h3>
+      <div id="checklist"></div>
+    </div>
+
+    <div class="section-card" style="background:linear-gradient(135deg,#1a1209,#2d2010);color:white">
+      <h3 style="color:white;border-color:#3d3020">🎯 Quick Actions</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+        <a href="vendors.html?cat=Hotels+%26+Venues" class="btn-solid">Find Venues</a>
+        <a href="vendors.html?cat=Photography" class="btn-solid">Book Photographer</a>
+        <a href="vendors.html?cat=Catering" class="btn-solid">Find Caterer</a>
+        <a href="vendors.html" class="btn-ghost" style="color:var(--gold);border-color:var(--gold)">All Services</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+<script>
+// Checklist
+const checklist = [
+  { task:"Set a wedding date", done:true },
+  { task:"Choose a venue", done:false },
+  { task:"Book photographer", done:false },
+  { task:"Hire caterer", done:false },
+  { task:"Order wedding cake", done:false },
+  { task:"Book florist/decorator", done:false },
+  { task:"Arrange wedding cars", done:true },
+  { task:"Book beauty salon", done:false },
+];
+const cl = document.getElementById('checklist');
+if(cl) {
+  cl.innerHTML = checklist.map(c=>`
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--gold-light)">
+      <input type="checkbox" ${c.done?'checked':''} style="width:18px;height:18px;accent-color:var(--gold)">
+      <span style="${c.done?'text-decoration:line-through;color:var(--mid)':''}">${c.task}</span>
+    </div>`).join('');
+}
+</script>
+</body>
+</html>

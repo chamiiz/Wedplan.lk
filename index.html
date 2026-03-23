@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WedPlan.lk – Your Complete Wedding Planning Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Wed<span>Plan</span>.lk</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="vendors.html">Vendors</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="login.html" class="btn-ghost">Login</a>
+      <a href="register.html" class="btn-solid">Register</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="vendors.html">Vendors</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-tag">Sri Lanka's #1 Wedding Platform</p>
+    <h1>Plan Your<br><em>Perfect</em> Day</h1>
+    <p class="hero-sub">Discover, compare, and book all your wedding services in one beautiful place.</p>
+    <div class="search-bar">
+      <select id="catSelect">
+        <option value="">All Services</option>
+        <option>Hotels & Venues</option>
+        <option>Photography</option>
+        <option>Catering</option>
+        <option>Decoration</option>
+        <option>Wedding Cars</option>
+        <option>Salons & Beauty</option>
+        <option>Dress Designers</option>
+      </select>
+      <input type="text" placeholder="Search by location..." id="locInput">
+      <button onclick="goSearch()">Search</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="count" data-target="320">0</span><p>Vendors</p></div>
+    <div class="stat"><span class="count" data-target="1800">0</span><p>Bookings</p></div>
+    <div class="stat"><span class="count" data-target="98">0</span><p>% Happy Couples</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="container">
+    <h2>Our <em>Services</em></h2>
+    <p class="section-sub">Everything you need for your dream wedding</p>
+    <div class="services-grid">
+      <a href="services.html?cat=hotels" class="service-card">
+        <div class="s-icon">🏨</div>
+        <h3>Hotels & Venues</h3>
+        <p>Ballrooms, outdoor gardens, boutique venues across Sri Lanka</p>
+      </a>
+      <a href="services.html?cat=photo" class="service-card">
+        <div class="s-icon">📸</div>
+        <h3>Photography</h3>
+        <p>Capture every moment with our professional photographers</p>
+      </a>
+      <a href="services.html?cat=catering" class="service-card">
+        <div class="s-icon">🍽️</div>
+        <h3>Catering</h3>
+        <p>Traditional & modern menus tailored to your taste</p>
+      </a>
+      <a href="services.html?cat=deco" class="service-card">
+        <div class="s-icon">💐</div>
+        <h3>Decoration</h3>
+        <p>Floral arrangements, lighting, and stunning setups</p>
+      </a>
+      <a href="services.html?cat=cars" class="service-card">
+        <div class="s-icon">🚗</div>
+        <h3>Wedding Cars</h3>
+        <p>Luxury vehicles for your grand entrance</p>
+      </a>
+      <a href="services.html?cat=salon" class="service-card">
+        <div class="s-icon">💄</div>
+        <h3>Salons & Beauty</h3>
+        <p>Bridal makeup, hair styling, and spa packages</p>
+      </a>
+      <a href="services.html?cat=dress" class="service-card">
+        <div class="s-icon">👗</div>
+        <h3>Dress Designers</h3>
+        <p>Bespoke bridal & groom wear for your special day</p>
+      </a>
+      <a href="services.html" class="service-card more-card">
+        <div class="s-icon">✨</div>
+        <h3>& More</h3>
+        <p>Explore all categories on WedPlan.lk</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED VENDORS -->
+<section class="vendors-section">
+  <div class="container">
+    <h2>Featured <em>Vendors</em></h2>
+    <p class="section-sub">Trusted by hundreds of Sri Lankan couples</p>
+    <div class="vendors-grid" id="vendorGrid"></div>
+    <div class="center-btn">
+      <a href="vendors.html" class="btn-solid">View All Vendors</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="container">
+    <h2>How It <em>Works</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Browse & Compare</h3>
+        <p>Search vendors by service type, location, and price range</p>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Book Online</h3>
+        <p>Send booking requests directly to vendors through our platform</p>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Celebrate!</h3>
+        <p>Enjoy your perfect day and leave a review for others</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2>Happy <em>Couples</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"WedPlan.lk made our wedding planning so easy. Found all vendors in one place!"</p>
+        <div class="couple">— Dilshan & Nimasha, Colombo</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"The booking system is seamless. Our photographer was booked within minutes!"</p>
+        <div class="couple">— Kasun & Sanduni, Kandy</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Compared 10 caterers with price details. Saved us so much time and money!"</p>
+        <div class="couple">— Amara & Thilina, Galle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Are you a <em>Wedding Vendor?</em></h2>
+    <p>Join WedPlan.lk and reach thousands of couples planning their dream wedding in Sri Lanka.</p>
+    <a href="register.html?type=vendor" class="btn-solid large">Register as Vendor</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Wed<span>Plan</span>.lk</div>
+      <p>Sri Lanka's complete wedding planning platform. Connect with trusted vendors for your perfect day.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="vendors.html">Vendors</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="footer-links">
+      <h4>Account</h4>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="register.html?type=vendor">Vendor Sign Up</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <p>📧 hello@wedplan.lk</p>
+      <p>📞 +94 11 234 5678</p>
+      <p>📍 Colombo, Sri Lanka</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 WedPlan.lk – PUSL2021 Group Project | Plymouth University Partnership</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
